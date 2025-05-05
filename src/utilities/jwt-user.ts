@@ -8,5 +8,4 @@ export class JWTUser {
   getId(): string {
     return this.id;
   }
-
 }

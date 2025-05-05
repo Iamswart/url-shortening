@@ -50,17 +50,28 @@ export const getUrlStatisticsSchema = celebrate(
 );
 
 export const listUrlsSchema = celebrate(
-  {
-    [Segments.QUERY]: Joi.object().keys({
-      search: Joi.string().min(3).allow('').messages({
-        'string.min': 'Search term must be at least 3 characters long',
+    {
+      [Segments.QUERY]: Joi.object().keys({
+        search: Joi.string().min(3).allow('').messages({
+          'string.min': 'Search term must be at least 3 characters long',
+        }),
+        page: Joi.number().integer().min(1).messages({
+          'number.base': 'Page must be a number',
+          'number.integer': 'Page must be an integer',
+          'number.min': 'Page must be at least 1',
+        }),
+        limit: Joi.number().integer().min(1).max(50).messages({
+          'number.base': 'Limit must be a number',
+          'number.integer': 'Limit must be an integer',
+          'number.min': 'Limit must be at least 1',
+          'number.max': 'Limit cannot exceed 50',
+        }),
       }),
-    }),
-  },
-  {
-    abortEarly: false,
-  }
-);
+    },
+    {
+      abortEarly: false,
+    }
+  );
 
 export const redirectUrlSchema = celebrate(
   {

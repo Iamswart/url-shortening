@@ -41,7 +41,7 @@ This is a URL shortening service where you enter a URL such as https://indicina.
    ```bash
    # Server configuration
    PORT=3000
-   NODE_ENV=local
+   NODE_ENV=development
 
    # Database configuration
    DB_USERNAME=<your_mysql_username>
